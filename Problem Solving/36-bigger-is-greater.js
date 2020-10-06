@@ -1,43 +1,42 @@
 // Complete the biggerIsGreater function below.
 function biggerIsGreater(w) {
-    let nextBig = w.length - 1;
     let stringArr = [...w];
+    let min = { diff: Number.POSITIVE_INFINITY };
     for (let i = w.length - 1; i >= 1; i--) {
-        if (w.charCodeAt(nextBig) - w.charCodeAt(0) < 0) {
-            nextBig = i;
-        }
-        if (w.charCodeAt(i) - w.charCodeAt(0) > 0 && w.charCodeAt(i) - w.charCodeAt(0) <= w.charCodeAt(nextBig) - w.charCodeAt(0)) {
-            nextBig = i;
-        }
-        if (w.charCodeAt(i) > w.charCodeAt(i-1)) {  
-            if (i === 1) {
-                const first = w[nextBig];
-                stringArr.splice(nextBig, 1);
-                stringArr = stringArr.sort();
-                return `${first}${stringArr.join('')}`;
-            }  else {
-                let temp = stringArr[i];
-                stringArr[i] = stringArr[i-1];
-                stringArr[i-1] = temp;
-                return stringArr.join('');
-            }
+        if (w.charCodeAt(i) > w.charCodeAt(i-1)) {
+            let half = stringArr.splice(i).sort();
+            min.l = stringArr[stringArr.length - 1];
+            half.forEach((character, index) => {
+                let diff =  character.charCodeAt(0) - stringArr[stringArr.length - 1].charCodeAt(0)
+                if(diff > 0 && diff < min.diff) {
+                    min.r = half[index];
+                    min.halfIndex = index;
+                    min.diff = diff;
+                }
+            });
+            stringArr[stringArr.length - 1] = half[min.halfIndex];
+            half[min.halfIndex] = min.l;
+            return `${stringArr.join('')}${half.join('')}`;
         }
     }
     return 'no answer';
 }
 
-// console.log(biggerIsGreater('ab')); //ba
-// console.log(biggerIsGreater('hefg')); // hegf
-// console.log(biggerIsGreater('dhck')); // dhkc
-// console.log(biggerIsGreater('dkhc')); // hcdk  
+console.log(biggerIsGreater('ab')); //ba
+console.log(biggerIsGreater('hefg')); // hegf
+console.log(biggerIsGreater('dhck')); // dhkc
+console.log(biggerIsGreater('dkhc')); // hcdk  
 console.log(biggerIsGreater('abdc')); // acbd   
 
 /**
  * 
  * Start the loop from end
- * If you encounter any character less than the previous (in actual string, next) swap and return
- * if you go till the first character, then pick the next big character, sort the string and prepend the next big character
- * We need to keep track of the diff between first character and eavery other character that we're iterating.
+ * Iterate till you find that the previous character is lexicographycally less than the current character.
+ * Split the array in two parts, keeping the "previous" character in first half and "current" one in the second half
+ * sort the second half
+ * loop through it, and find a character that is just bigger than the last character of first half
+ * swap them
+ * concatenate and return both the halves
  * 
  * fedcbabcd
  * fedcbabdc
@@ -57,7 +56,4 @@ console.log(biggerIsGreater('abdc')); // acbd
  * kcdh
  * 
  * 
- * 1. biggest
- * 2. Just big/next
- * 3. 
  */
