@@ -39,7 +39,6 @@ function climbingLeaderboard(scores, alice) {
       ranks.push(new Set(scores).size + 1);
     } else {
         // do binary search here
-        // console.log(findScore(scores, alice[i], 0));
         const clonedArray = [...scores];
         let rank = findScore(clonedArray, alice[i], 0);
         ranks.push(new Set(scores.slice(0, rank - 1)).size + 2);
@@ -57,10 +56,10 @@ function findScore(arr, element, originalLength) {
     } else if (element > currentElement && element <= arr[targetIndex - 1]) {
         return originalLength + targetIndex;
     } else if (element < currentElement && element >= arr[targetIndex + 1]) {
-        return originalLength + targetIndex;
+        return originalLength + (targetIndex + 1);
     }
     else if (element > arr[targetIndex]){
-        return findScore(arr.splice(0, targetIndex - 1), element, originalLength - (targetIndex + 1));
+        return findScore(arr.splice(0, targetIndex - 1), element, originalLength);
     } else {
         return findScore(arr.splice(targetIndex + 1), element, originalLength + (targetIndex + 1));
     }
