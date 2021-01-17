@@ -1,0 +1,37 @@
+// ============ NOT SOLVED ================ //
+
+// Complete the abbreviation function below.
+function abbreviation(a, b) {
+   let i = 0;
+   while(i < a.length) {
+       if (a[i] === b[i] || a[i].toUpperCase() === b[i]) {
+           if (!isCapital(a[i])) {
+            let j = i;
+            while (!isCapital(a[j])) {
+                if (a[j] === b[i]) {
+
+                }
+            }
+           } else {
+            i++;
+           }
+       } else if (isCapital(a[i])) {
+           return 'NO';
+       } else {
+           a = a.substring(0, i) + a.substring(i+1);
+       }
+   }
+   return a.toLowerCase() === b.toLowerCase() ? 'YES': 'NO';
+
+}
+
+function isCapital(character) {
+    return character === character.toUpperCase();
+}
+
+
+console.log(abbreviation('dAbCd', 'ABC'));
+// console.log(abbreviation('OPZFFVQLADBQFBXLOSUMZZWQUKASCUVQZZVWfPIRTytlvpijddqegbwitkhhsbuehtnpndvcandzjzyepvlnkayfkwzegvbratvwezddjqxrxocqgcghuohlmsondvicocltqhvqfqjpctxfomjoukrheijhhndcbipiobvpbskemgykepokluwqhhejdaimvdvlegfyrrwckgojsbsxmsvhhrlnvcrxfaxinjzsjgvvrlcczqlkvgtftsvktvhtfpaklumhkovphilrappbvkarfhvwxxtrugypracozyqyvaqjityoiyemyavpbchaoagrvujocpueczsgcqdjvkjckxhmnaseshjgecusrxozuxgeieleewwskmiprlqnshvmcp', 'OPZFFVQLADBQFBXLOSUMZZWQUKASCUVQZZVWPIRT'))
+// console.log(abbreviation('SGFRHHRTUNXWPSMCEPQVUMRFAPAGREOVDRAUEGIQMGIDEWDNZRTUKLFQFFNIYHZFXSRMNIFVYZCUIOUXPYILVDYZPJAMPJZWVHZOGJIDHUBSHGGAKMPVGCUVUUOQMXEEZSEQLJBAKMZDgxshpoqdprlsdtyyfagfltxdkhxtophvvkzvjxybzjyqcvqxilizrebbbgzqbcoqinrvyvsdrxgsieswsrbqxqalattwebmuviogrqhyjucdiqdbuplinbiegmfslcoxjoabaeomkbejibmjxqiogwkoupmgohvxdksnsdapfdghehpcenhlsxzxljvdtosgmzdeezvblqspvzlchkhnnjjevdciolawfqqixyorlbbgmcxmzukndgfztsjvqzjppwpgokygoqhwbexxnzivsvocsjcvlubinqgfrfbqagornokxauxjlucidtzmtpabttntxtdpcbtjmvfghhjtmquknzzeqmdueqxuoqhodochabdnorbnvjjjapqbuwagdmddgktfyirvctqumxvzahswtzoxsjxsmsydlpvkuchponglncfycqepjsqcawvuysxazalodlcfjrlzzbkplbtg', 'SGFRHHRTUNXWPSMCEPQVUMRFAPAGREOVDRAUEGIQMGIDEWDNZRTUKLFQFFNIYHZFXSRMNIFVYZCUIOUXPYILVDYZPJAMPJZWVHZOGJIDHUBSHGGAKMPVGCUVUUOQMXEEZSEQLJBAKMZD'))
+// console.log(abbreviation('XIzPPYUARLQTCXSVQYXYTVkAIAGNWUIKrCYVMcwRWSQPDBMTXqMXqMMZTTKGTBSHWLOOCNJLZZFZZPZHBGYOUNSHJQEXAPBXTZIMSNQLMGOmCbVHLMKSJOSOLDNLAVERGNZUXGHOGBUXHHGOCECNCXBzIJmQCCKPCEUAOcZNDKZEHEBDHEOLBLUTAUgKDHNJGHMFEBWASKIBERPCBPJGFFyHDYFWYUGzQTCvGQFJDrPJFPMTUKBsXPVXNKTDQRRRPPVDWFRhCoyWIYUPNADZerFSQDGCtqGVVPWMZVNUWUMMBBPSBZQGESUIMXEUCMEBGGKLGDHVPPOMLXOUFWZENPBPKVkVYATLMOXvZTXVWHLYGIDSEPCHRXZYNTFCFFuQGYSETXNKUgITLxXCNUGJMaPQNrQYUNOOPKbXNMgDSFLFBBSTNKvZENUUPWONLJFHBKNARBBNLTCTKFzVUAODEFQBfRGRMPuXQYGFPVNUGSDRNFMAEKDQHoGoGXBJLWRBAIACKCuCOALIWUvTdVhOKLYXFUIFytNQSIIsPTKKTBBADTBJRUHRBQGPNZLLCMDDYPWXQURFEDQZLdODSIZBNIADVjLsLENGMLBTtWLMRLBpBVBNSMYTQMOUAFMPDUVEBTJWBRXPKNRDTLBQYCUyKZHRWASHPVzYXLTSDYNvYLMMHWOXCLRXAMTPqRAoPZSGZFiFFRgTMROZULQSVypFRTJQKIRXFRbQTHSCVQBqWACWPCCNbBPZPCLzTRJQHUPEZiWBTZWWQWRUUOmKJCyQVTRCNRIHPRPKOEIgChEISVBGJRWLSRIBGzFMGHXYMLPQWUPOXGVGPOQHRVUJJWLNWBlDMHTLXVDIOFHULTAVdjAXASXMUJYNIPWOJcQFAOCBXQADGKMHMHUoSWMQVLYQSTMYYZtypTTSVGZQGZCFcNYNSBZFNMIhjGiTNWQCTGnYVSINYJvPkeGJFtFKKUPICFHOTUNFpE', 'XIPPYUARLQTCXSVQYXYTVAIAGNWUIKCYVMRWSQPDBMTXMXMMZTTKGTBSHWLOOCNJLZZFZZPZHBGYOUNSHJQEXAPBXTZIMSNQLMGOCVHLMKSJOSOLDNLAVERGNZUXGHOGBUXHHGOCECNCXBIJQCCKPCEUAOZNDKZEHEBDHEOLBLUTAUKDHNJGHMFEBWASKIBERPCBPJGFFHDYFWYUGQTCGQFJDPJFPMTUKBXPVXNKTDQRRRPPVDWFRCWIYUPNADZFSQDGCGVVPWMZVNUWUMMBBPSBZQGESUIMXEUCMEBGGKLGDHVPPOMLXOUFWZENPBPKVVYATLMOXZTXVWHLYGIDSEPCHRXZYNTFCFFQGYSETXNKUITLXCNUGJMPQNQYUNOOPKXNMDSFLFBBSTNKZENUUPWONLJFHBKNARBBNLTCTKFVUAODEFQBRGRMPXQYGFPVNUGSDRNFMAEKDQHGGXBJLWRBAIACKCCOALIWUTVOKLYXFUIFNQSIIPTKKTBBADTBJRUHRBQGPNZLLCMDDYPWXQURFEDQZLODSIZBNIADVLLENGMLBTWLMRLBBVBNSMYTQMOUAFMPDUVEBTJWBRXPKNRDTLBQYCUKZHRWASHPVYXLTSDYNYLMMHWOXCLRXAMTPRAPZSGZFFFRTMROZULQSVFRTJQKIRXFRQTHSCVQBWACWPCCNBPZPCLTRJQHUPEZWBTZWWQWRUUOKJCQVTRCNRIHPRPKOEICEISVBGJRWLSRIBGFMGHXYMLPQWUPOXGVGPOQHRVUJJWLNWBDMHTLXVDIOFHULTAVAXASXMUJYNIPWOJQFAOCBXQADGKMHMHUSWMQVLYQSTMYYZTTSVGZQGZCFNYNSBZFNMIGTNWQCTGYVSINYJPGJFFKKUPICFHOTUNFELFGSKLWSAKHVRASPJKDWLVVCGCCZRBMGRMJXHNJCZOCQVVIDCXZOSUJWMARACWDCTQOXWDJUOTUXZMGORHBMPWSXK'))
+// console.log(abbreviation('JSKKKPVEIKELNYFFaAPIFjzzswzguxgyxtfwihsbbrbnhqrqfhvilbhisifdfymuhnjpeplqxhgygbrmxkqvavhpvzupyfarttbavieetuqgokibzwriaroxyxuflxhftzzydpilikmdsxwlcfsshpmshhselchirblbkjutgctiwdoesgxhnfobwhsavehtvmjudlvkkkxowynjrufqvmczkeuktlhxvgzwcceguelipbtredjgcuhyuzuvvtkljlnfdjkouwbykkiyuqdymyvcmxzshdcnihvpxdjsrmeztshijnalnxfckrrpeppfpgmxtkinylgnkgnhorrfjdozdjtntoovqfdrvxzvsbsdyibkkimydxjpiagtydkyfzkdhtzorwosdtrxhraxqdzgtokthxerbcufawndvmwcjayonhldszdytfzdfbztdhzdylgokvulgmeadoivxzirhnncipyswsvvawwzqtinowejyspwgxvfzdwyoysqaqmhmlgedvckvaetggxukonuhzkfvvvrzxdpioffcreanvtyhkulxejdgxxxdlzwosuehzyhthezisipyoeibicozjpkglntmqkaaxalpfapgsiykkhcibyqmjoxxjgipprjfwabdncyhcutsitqzkadaufsactektrwqvjdpqgyjlvpiwyxfkgteyfffzefxngqctmntytwhgywqamfwtdkebujupwvcbtrdrmpshpztdehtxdleidscvhrariknfeumocebntrnrcmujrykinldwtvopxzqpkmtansbatxeffxqirysemxygcokgvafrdyegwnuowtqxywhilocfltbfnvtjcvhbtjitacqqqgdcvdlvmzmdbqxaemppntrtpzpchlqcohpqjrfecvufzkwzxmkdxsswbeyqkhluhhwlqofvybcqufcuwyhbdnyemjcpvqngfy', 'JSKKKPVEIKELNYFFAPIF'))
