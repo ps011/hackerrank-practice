@@ -1,9 +1,8 @@
-function reverseString(str, rev = '') {
+function reverseString(str) {
   if (str.length === 0) {
-    return rev;
+    return '';
   } else {
-    rev+=str[str.length - 1];
-    return reverseString(str.substring(0, str.length - 1), rev);
+    return reverseString(str.substring(1)) + str[0];
   }
 }
 
