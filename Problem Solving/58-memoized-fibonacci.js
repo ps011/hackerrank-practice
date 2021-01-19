@@ -23,7 +23,7 @@ function memoizedFibonacci() {
     }
 }
 const fib = memoizedFibonacci();
-console.log(fibonacci(7), calculations);
+// console.log(fibonacci(7), calculations);
 
-// console.log(fib(50));
+console.log(fib(7));
 // 0 1 1 2 3 5 8 13 21 34 55
