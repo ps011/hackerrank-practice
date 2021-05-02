@@ -11,7 +11,6 @@
 
 function howManyGames(p, d, m, s) {
     let games = 0;
-
     while(s > 0) {
         if (s >= p) {
             games++;
