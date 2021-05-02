@@ -17,7 +17,6 @@ function workbook(n, k, arr) {
                 currentPage++;
             }
             if (j === currentPage) {
-                console.log(j)
                 count++;
             }
         }
